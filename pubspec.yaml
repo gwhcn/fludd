@@ -1,8 +1,8 @@
 name: fludd
-description: A new Flutter plugin.
+description: flutter 钉钉登录.
 version: 0.0.1
-author:
-homepage:
+author: gwh<guwenhao0221@gmail.com>
+homepage: https://github.com/gwhcn/fludd.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
