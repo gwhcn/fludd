@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 
 import 'models/dd_response.dart';
 
+export 'models/dd_response.dart';
+
 //class Fludd {
 //  static const MethodChannel _channel =
 //      const MethodChannel('fludd');
