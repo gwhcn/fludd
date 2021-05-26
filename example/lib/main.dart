@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:fludd/fludd.dart';
 
 void main() {
@@ -32,7 +30,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: FlatButton(onPressed: (){
+          child: TextButton(onPressed: (){
             Fludd.sendAuth(bundleId: 'com.gwh.fluddExample').then((b){
               print("bbbb:$b");
             }).catchError((e){

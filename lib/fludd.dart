@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/material.dart' show required;
 import 'package:flutter/services.dart';
 
 import 'models/dd_response.dart';
@@ -20,8 +19,8 @@ export 'models/dd_response.dart';
 class Fludd {
   static final MethodChannel _channel = const MethodChannel('fludd')..setMethodCallHandler(_handler);
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  static Future<String?> get platformVersion async {
+    final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
 
@@ -40,7 +39,7 @@ class Fludd {
     return Future.value(true);
   }
 
-  static Future<bool> registerApp({@required String appId}) {
+  static Future<bool?> registerApp({required String appId}) {
     return _channel.invokeMethod("registerApp", {"appId": appId});
   }
 
@@ -48,7 +47,7 @@ class Fludd {
     return _channel.invokeMethod("unregisterApp");
   }
 
-  static Future sendAuth({String bundleId}) {
+  static Future sendAuth({String? bundleId}) {
     if (Platform.isIOS) {
       return _channel.invokeMethod("sendAuth", {"bundleId": bundleId});
     } else {
@@ -56,11 +55,11 @@ class Fludd {
     }
   }
 
-  static Future<bool> isDingDingInstalled() {
+  static Future<bool?> isDingDingInstalled() {
     return _channel.invokeMethod("isDingDingInstalled");
   }
 
   static closeStream() {
-    _responseAuthController?.close();
+    _responseAuthController.close();
   }
 }
